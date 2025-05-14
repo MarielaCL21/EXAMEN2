@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Mi Blog {% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Publicaciones del Blog</h1>
+
+{% if posts %}
+    {% for post in posts %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">{{ post.title }}</h4>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+            <div class="card-footer text-muted">
+                Publicado por <strong>{{ post.username }}</strong> el {{ post.created_at }}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No hay publicaciones aún.</p>
+{% endif %}
+{% endblock %}
